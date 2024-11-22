@@ -1,0 +1,31 @@
+#######################################
+# Syntax Coloring Map For WifiNet
+#######################################
+#######################################
+# Library (KEYWORD3)
+#######################################
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+WifiNet   KEYWORD1
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+begin   KEYWORD2
+startWiFi  KEYWORD2
+WiFiTimeOut  KEYWORD2
+IsWifiConnected  KEYWORD2
+WiFiCodePrint  KEYWORD2
+GetWWWTime  KEYWORD2
+startOTAWifiServer KEYWORD2
+whileWait4Wifi KEYWORD2
+fetchCredFromEEPROM KEYWORD2
+UpdateWifiCredentials KEYWORD2
+ClearEEPROMwifiCredentials KEYWORD2
+KeepCredentialsEEPROM KEYWORD2
+KeepChaBssidEEPROM KEYWORD2
+ServiceOTACred KEYWORD2
+SimpleUtilityPage KEYWORD2
+storeIPaddress KEYWORD2
+fetchIPaddress KEYWORD2
+CompareAndKeepIP KEYWORD2

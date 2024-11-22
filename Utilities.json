@@ -1,0 +1,24 @@
+{
+    "name": "WifiNet",
+    "version": "0.3.0",
+    "description": "Methods to connect Arduino ESP8266 platform to WiFi LAN for IoT applications",
+    "keywords": "example, platformio, library",
+    "repository":
+    {
+      "type": "git",
+      "url": "https://github.com/sachiger/WifiNet.git"
+    },
+    "authors":
+    [
+      {
+        "name": "Sachi Gerlitz",
+        "email": "sachi@gerlitz.co.il",
+        "url": "https://sachigerlitz.smugmug.com/",
+        "maintainer": true
+      }
+    ],
+    "license": "MIT",
+    "frameworks": "arduino",
+    "platforms": "espressif8266"
+  }
+  
