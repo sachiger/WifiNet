@@ -1,6 +1,6 @@
 {
     "name": "WifiNet",
-    "version": "0.3.1",
+    "version": "0.3.3",
     "description": "Methods to connect Arduino ESP8266 platform to WiFi LAN for IoT applications",
     "keywords": "example, platformio, library",
     "repository":
@@ -22,7 +22,7 @@
     "platforms": "espressif8266",
     "build": {
         "flags": [
-          "-D WifiNetVersion=\\\"0.3.1\\\""
+          "-D WifiNetVersion=\\\"0.3.3\\\""
         ]
       }
   }

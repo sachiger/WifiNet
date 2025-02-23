@@ -2,6 +2,7 @@
  * WifiNet.h library for methods to connect to Wifi for IoT applications
  * Created by Sachi Gerlitz
  * 
+ * 06-I-2025    ver 0.3.2 [add refresh IP check]
  * 29-XII-2024  ver 0.3.1 [add <getVersion>]
  * 27-VIII-2024 ver 0.2
  *
@@ -35,25 +36,26 @@
     #define     PASSlength  32          // maximum PW length stored in EEPROM
   #endif  //PASSlength
   struct  ManageWifi {
+    IPAddress   previousIP;             // keeps the previous IP address
+    uint32_t    uploadedFileLen;        // length of OTA elegant Server uploaded file
+    unsigned long TimeMeasured;         // keeps the time to connection
     uint8_t     WiFiStatus;             // status of WiFi connection:
-    char        Ssid[SSIDlength+1];     // network ID
-    char        Password[PASSlength+1]; // network password
     uint8_t     WiFiBSsid[6];           // BSSid
     uint8_t     WiFichannel;            // channel
     uint8_t     CredStat;               // status of credentials, values by <Codes4WiFi> enup in .cpp
-    unsigned long TimeMeasured;         // keeps the time to connection
     uint8_t     ledIndicationCode;      // led indication management
     uint8_t     HowLongItTook;          // counter of connection retries
     uint8_t     activeTimeEvent;        // semaphore from library to time event <ManageWifiEvents>:
                                         // 0-no action; 1- WIFICONNECT-On ; 2-InitAppPostWiFi-On, WIFICONNECT-Off;
                                         // 3-WIFICONNECT-Off; 4-reset system; 5-TBD;
     bool        StaticDynamicIP;        // set for static IP, reset for DNS address
-    char        DeviceIP[18];           // keeps actual IP
     bool        RefreshTimeSet;         // flag to init time refresh
+    bool        uploadFileRady;         // OTA elegant Server uploaded file completed
+    char        DeviceIP[18];           // keeps actual IP
     char        WhoAmI[18];             // platform ID
     char        Version[18];            // current SW version
-    uint32_t    uploadedFileLen;        // length of OTA elegant Server uploaded file
-    bool        uploadFileRady;         // OTA elegant Server uploaded file completed
+    char        Ssid[SSIDlength+1];     // network ID
+    char        Password[PASSlength+1]; // network password
   };
 
   class WifiNet {
@@ -78,6 +80,7 @@
       bool        storeIPaddress(TimePack _SysClock, char* IPstring, uint16_t EEPaddress);
       char*       fetchIPaddress(char* buff, uint16_t EEPaddress);
       bool        CompareAndKeepIP (TimePack _SysClock,ManageWifi M);
+      bool        IsItNewIPaddress (ManageWifi M);
       const char* getVersion();
     private:
       ManageWifi  _LM;
